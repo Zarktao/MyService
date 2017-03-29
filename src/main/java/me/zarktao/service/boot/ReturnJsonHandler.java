@@ -32,16 +32,12 @@ public class ReturnJsonHandler extends RequestResponseBodyMethodProcessor {
 
     @Override
     public boolean supportsReturnType(final MethodParameter returnType) {
-        logger.info("==========================================================");
-        logger.info("Start support judge");
         return (AnnotatedElementUtils.hasAnnotation(returnType.getContainingClass(), JsonResponseBody.class) ||
                 returnType.hasMethodAnnotation(JsonResponseBody.class));
     }
 
     @Override
     public void handleReturnValue(final Object returnValue, final MethodParameter returnType, final ModelAndViewContainer mavContainer, final NativeWebRequest webRequest) throws IOException, HttpMediaTypeNotAcceptableException {
-        logger.info("==========================================================");
-        logger.info("Start Handle");
         super.handleReturnValue(returnValue, returnType, mavContainer, webRequest);
     }
 }
