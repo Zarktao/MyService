@@ -7,7 +7,6 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.accept.ContentNegotiationManager;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 public class ReturnJsonHandler extends RequestResponseBodyMethodProcessor {
 
-    private static Log logger = LogFactory.getLog(Configuration.class);
+    private static Log logger = LogFactory.getLog(WebConfigurer.class);
 
     public ReturnJsonHandler(final List<HttpMessageConverter<?>> messageConverters) {
         super(messageConverters);

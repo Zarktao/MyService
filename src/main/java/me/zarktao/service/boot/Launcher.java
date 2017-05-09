@@ -1,15 +1,13 @@
 package me.zarktao.service.boot;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import me.zarktao.service.service.wechat.Wechat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -23,8 +21,10 @@ import javax.servlet.ServletContextListener;
 @SpringBootApplication
 @ComponentScan("me.zarktao.service")
 public class Launcher {
+    private static final Logger logger = LoggerFactory.getLogger(Launcher.class);
 
-    private static Log logger = LogFactory.getLog(Launcher.class);
+    @Autowired
+    private AppProperties appProperties;
 
     @Bean
     protected ServletContextListener listener() {
@@ -32,6 +32,12 @@ public class Launcher {
             @Override
             public void contextInitialized(ServletContextEvent sce) {
                 logger.info("ServletContext initialized");
+                if (AppProperties.WECHAT_ENABLED) {
+                    logger.info("Wechat functionality enabled.");
+                    Wechat.init();
+                } else {
+                    logger.info("Wechat functionality disabled.");
+                }
             }
 
             @Override
