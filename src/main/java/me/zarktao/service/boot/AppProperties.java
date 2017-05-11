@@ -9,7 +9,6 @@ import org.springframework.context.annotation.PropertySource;
  */
 
 @org.springframework.context.annotation.Configuration
-@PropertySource("classpath:application.properties")
 public class AppProperties {
     public static String APP_NAME;
     public static boolean WECHAT_ENABLED;
@@ -21,17 +20,17 @@ public class AppProperties {
         APP_NAME = appName;
     }
 
-    @Value("${wechat.enabled}")
+    @Value("${app.wechat.enabled}")
     public void setWechatEnabled(boolean wechatEnabled) {
         WECHAT_ENABLED = wechatEnabled;
     }
 
-    @Value("${wechat.appid}")
+    @Value("${app.wechat.appid}")
     public void setWechatAppId(String wechatAppId) {
         WECHAT_APPID = wechatAppId;
     }
 
-    @Value("${wechat.secret}")
+    @Value("${app.wechat.secret}")
     public void setWechatSecret(String wechatSecret) {
         WECHAT_SECRET = wechatSecret;
     }

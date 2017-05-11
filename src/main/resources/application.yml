@@ -1,0 +1,36 @@
+server:
+  compression:
+    enabled: true
+    min-response-size: 1
+  connection-timeout: 5000
+  port: 8080
+  session:
+    timeout: 5
+
+spring:
+  session:
+    store-type: redis
+  redis:
+    host: 172.168.1.106
+    port: 6379
+    password: 123456
+  datasource:
+    url: jdbc:mysql://172.168.1.106:3306/test
+    username: root
+    password: 123456
+
+
+#security:
+#  oauth2:
+#    client:
+#      client-id: testclient
+#      client-secret: testsecret
+#      scope: read,write
+#      auto-approve-scopes: '.*'
+
+app:
+  name: Pabao
+  wechat:
+    enabled: true
+    appid: wx50af58bedf7b620c
+    secret: 9d9b9af72afa17abce68c96b4055768d

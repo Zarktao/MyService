@@ -19,6 +19,8 @@ import javax.servlet.ServletContextListener;
  */
 
 @SpringBootApplication
+//@EnableOAuth2Client
+//@EnableAuthorizationServer
 @ComponentScan("me.zarktao.service")
 public class Launcher {
     private static final Logger logger = LoggerFactory.getLogger(Launcher.class);
