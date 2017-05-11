@@ -1,6 +1,7 @@
 package me.zarktao.service.boot;
 
 import me.zarktao.service.service.wechat.Wechat;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,8 @@ import javax.servlet.ServletContextListener;
  */
 
 @SpringBootApplication
-//@EnableOAuth2Client
-//@EnableAuthorizationServer
 @ComponentScan("me.zarktao.service")
+@MapperScan(basePackages = "me.zarktao.service.dao")
 public class Launcher {
     private static final Logger logger = LoggerFactory.getLogger(Launcher.class);
 
