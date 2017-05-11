@@ -9,10 +9,11 @@
 * 定时刷新的微信公众平台AccessToken和JSAPITicket
 * Mybatis操作MySQL数据库（初步实现）【加入PageHelper插件，tk.mapper工具，阿里druid连接池】
 * pom中使用starter简化pom内容
+* aspect统计接口调用次数（获取方法Signature）
 
 ### TODO List
 * MongoDB数据库连接
-* aspect记录方法名和类名
+* 热部署
 * (业务相关)七牛云服务
 * (业务相关)阿里大鱼
 * *作为API服务的OAUTH认证
